@@ -15,8 +15,7 @@
  */
 package org.scalatestplus.testng.example
 
-import org.scalatest.testng._
-import org.scalatest.testng.TestNGWrapperSuite
+import org.scalatestplus.testng.TestNGWrapperSuite
 
 class ExampleTestNGWrapperSuite extends TestNGWrapperSuite( 
     List("./src/test/scala/org/scalatestplus/testng/example/testngsuite.xml" )) {}

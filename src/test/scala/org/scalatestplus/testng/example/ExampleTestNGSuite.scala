@@ -15,7 +15,7 @@
  */
 package org.scalatestplus.testng.example
 
-import org.scalatest.testng._
+import org.scalatestplus.testng._
 import org.testng.annotations.Test
 import org.testng.annotations.BeforeMethod
 import org.testng.annotations.BeforeClass
