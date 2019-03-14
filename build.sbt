@@ -2,7 +2,7 @@ name := "scalatestplus-testng"
 
 organization := "org.scalatestplus"
 
-version := "1.0.0-SNAP2"
+version := "1.0.0-SNAP3"
 
 homepage := Some(url("https://github.com/scalatest/scalatestplus-testng"))
 
@@ -37,6 +37,28 @@ testOptions in Test :=
     "-l", "org.scalatest.tags.Slow",
     "-m", "org.scalatestplus.testng",
   ))
+
+enablePlugins(SbtOsgi)
+
+osgiSettings
+
+OsgiKeys.exportPackage := Seq(
+  "org.scalatestplus.testng.*"
+)
+
+OsgiKeys.importPackage := Seq(
+  "org.scalatest.*",
+  "org.scalactic.*", 
+  "scala.*;version=\"$<range;[==,=+);$<replace;"+scalaBinaryVersion.value+";-;.>>\"",
+  "*;resolution:=optional"
+)
+
+OsgiKeys.additionalHeaders:= Map(
+  "Bundle-Name" -> "ScalaTestPlusTestNG",
+  "Bundle-Description" -> "ScalaTest+TestNG is an open-source integration library between ScalaTest and TestNG for Scala projects.",
+  "Bundle-DocURL" -> "http://www.scalatest.org/",
+  "Bundle-Vendor" -> "Artima, Inc."
+)
 
 publishTo := {
   val nexus = "https://oss.sonatype.org/"
