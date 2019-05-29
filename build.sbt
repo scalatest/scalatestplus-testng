@@ -2,7 +2,7 @@ name := "scalatestplus-testng"
 
 organization := "org.scalatestplus"
 
-version := "1.0.0-SNAP4"
+version := "1.0.0-SNAP6"
 
 homepage := Some(url("https://github.com/scalatest/scalatestplus-testng"))
 
@@ -23,10 +23,10 @@ developers := List(
   )
 )
 
-crossScalaVersions := List("2.10.7", "2.11.12", "2.12.8", "2.13.0-RC1")
+crossScalaVersions := List("2.10.7", "2.11.12", "2.12.8", "2.13.0-RC2")
 
 libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest" % "3.1.0-SNAP9",
+  "org.scalatest" %% "scalatest" % "3.1.0-SNAP11",
   "org.testng" % "testng" % "6.7", 
   "commons-io" % "commons-io" % "1.3.2" % "test"
 )
