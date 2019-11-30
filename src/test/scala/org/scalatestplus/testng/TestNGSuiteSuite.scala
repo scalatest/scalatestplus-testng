@@ -22,7 +22,7 @@ import org.scalatest.fixture
 import org.hamcrest.core.IsAnything
 import org.scalatestplus.testng.SharedHelpers.EventRecordingReporter
 
-  class TestNGSuiteSuite extends FunSuite {
+  class TestNGSuiteSuite extends funsuite.AnyFunSuite {
 
     test("Reporter should be notified when test passes") {
 

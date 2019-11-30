@@ -22,7 +22,7 @@ package org.scalatestplus.testng {
   import org.scalatestplus.testng.test._
 
   //execute(None, new StandardOutReporter, new Stopper {}, Filter(), ConfigMap.empty, None)
-  class TestNGSuiteGroupsSuite extends FunSuite {
+  class TestNGSuiteGroupsSuite extends funsuite.AnyFunSuite {
     
     //////////////////////////////////////////////////////////
     // TESTS FOR INCLUDE

@@ -21,7 +21,7 @@ import org.scalatestplus.testng.SharedHelpers.EventRecordingReporter
 
 package org.scalatestplus.testng {
 
-  class TestNGWrapperSuiteSuite extends FunSuite {
+  class TestNGWrapperSuiteSuite extends funsuite.AnyFunSuite {
   
     val XML_SUITES_PROPERTY = "xml_suites"
       
