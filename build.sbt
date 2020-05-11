@@ -2,7 +2,7 @@ name := "testng-6.7"
 
 organization := "org.scalatestplus"
 
-version := "3.1.1.0"
+version := "3.1.2.0"
 
 homepage := Some(url("https://github.com/scalatest/scalatestplus-testng"))
 
@@ -23,10 +23,10 @@ developers := List(
   )
 )
 
-crossScalaVersions := List("2.10.7", "2.11.12", "2.12.10", "2.13.1")
+crossScalaVersions := List("2.10.7", "2.11.12", "2.12.11", "2.13.2")
 
 libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest" % "3.1.1",
+  "org.scalatest" %% "scalatest" % "3.1.2",
   "org.testng" % "testng" % "6.7", 
   "commons-io" % "commons-io" % "1.3.2" % "test"
 )
