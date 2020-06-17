@@ -38,14 +38,14 @@ private[testng] object Resources {
 
   def iconPlusShortName(param0: Any, param1: Any): String = makeString("iconPlusShortName", Array(param0, param1))
 
-  def rawIconPlusShortName: String = resourceBundle.getString("iconPlusShortName")
+  def rawIconPlusShortName(): String = resourceBundle.getString("iconPlusShortName")
 
   def testNotFound(param0: Any): String = makeString("testNotFound", Array(param0))
 
-  def rawTestNotFound: String = resourceBundle.getString("testNotFound")
+  def rawTestNotFound(): String = resourceBundle.getString("testNotFound")
 
   def testNGConfigFailed(): String = resourceBundle.getString("testNGConfigFailed")
 
-  def rawTestNGConfigFailed: String = resourceBundle.getString("testNGConfigFailed")
+  def rawTestNGConfigFailed(): String = resourceBundle.getString("testNGConfigFailed")
 
 }
