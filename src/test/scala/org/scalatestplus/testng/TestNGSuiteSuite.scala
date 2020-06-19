@@ -53,7 +53,7 @@ import org.scalatestplus.testng.SharedHelpers.EventRecordingReporter
       // when
       val status = new StatefulStatus
       (new FailureTestNGSuite()).runTestNG(testReporter, new Tracker, status)
-      status.setCompleted
+      status.setCompleted()
 
       // then
       testReporter.eventsReceived.lastOption match {

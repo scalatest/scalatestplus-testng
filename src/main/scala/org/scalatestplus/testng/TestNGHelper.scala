@@ -39,7 +39,7 @@ private[testng] object TestNGHelper {
     val decodedTestText = scala.reflect.NameTransformer.decode(testText)
     val formattedText =
       if (includeIcon) {
-        val testSucceededIcon = Resources.testSucceededIconChar
+        val testSucceededIcon = Resources.testSucceededIconChar()
         ("  " * (if (level == 0) 0 else (level - 1))) + Resources.iconPlusShortName(testSucceededIcon, decodedTestText)
       }
       else {
