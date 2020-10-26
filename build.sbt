@@ -99,3 +99,5 @@ pomExtra := (
     </developerConnection>
   </scm>
 )
+
+scalacOptions in (Compile, doc) := Seq("-doc-title", s"ScalaTest + TestNG ${version.value}")
