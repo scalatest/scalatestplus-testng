@@ -23,7 +23,9 @@ developers := List(
   )
 )
 
-crossScalaVersions := List("2.10.7", "2.11.12", "2.12.11", "2.13.2")
+scalaVersion := "2.13.4"
+
+crossScalaVersions := List("2.10.7", "2.11.12", "2.12.12", "2.13.4", "3.0.0-M2")
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest-core" % "3.3.0-SNAP3",
@@ -90,6 +92,17 @@ pomIncludeRepository := { _ => false }
 
 credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
 
-pgpSecretRing := file((Path.userHome / ".gnupg" / "secring.gpg").getAbsolutePath)
+pomExtra := (
+  <scm>
+    <url>https://github.com/scalatest/scalatestplus-selenium</url>
+    <connection>scm:git:git@github.com:scalatest/scalatestplus-selenium.git</connection>
+    <developerConnection>
+      scm:git:git@github.com:scalatest/scalatestplus-selenium.git
+    </developerConnection>
+  </scm>
+)
 
-pgpPassphrase := None
+// Temporary disable publishing of doc in dotty, can't get it to build.
+publishArtifact in (Compile, packageDoc) := !scalaBinaryVersion.value.startsWith("3.")
+
+scalacOptions in (Compile, doc) := Seq("-doc-title", s"ScalaTest + TestNG ${version.value}")
