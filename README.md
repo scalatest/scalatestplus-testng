@@ -16,7 +16,7 @@ Maven:
 ```
 <dependency>
   <groupId>org.scalatestplus</groupId>
-  <artifactId>testng-6-7</artifactId>
+  <artifactId>testng-6-7_2.13</artifactId>
   <version>3.2.5.0</version>
   <scope>test</scope>
 </dependency>
