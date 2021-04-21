@@ -5,7 +5,7 @@ name := "testng-6.7"
 
 organization := "org.scalatestplus"
 
-version := "3.2.7.0"
+version := "3.2.8.0"
 
 homepage := Some(url("https://github.com/scalatest/scalatestplus-testng"))
 
@@ -28,13 +28,13 @@ developers := List(
 
 scalaVersion := "2.13.5"
 
-crossScalaVersions := List("2.10.7", "2.11.12", "2.12.13", "2.13.5", "3.0.0-RC2")
+crossScalaVersions := List("2.10.7", "2.11.12", "2.12.13", "2.13.5", "3.0.0-RC3")
 
 libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest-core" % "3.2.7",
+  "org.scalatest" %% "scalatest-core" % "3.2.8",
   "org.testng" % "testng" % "6.7", 
   "commons-io" % "commons-io" % "1.3.2" % "test", 
-  "org.scalatest" %% "scalatest-funsuite" % "3.2.7" % "test"
+  "org.scalatest" %% "scalatest-funsuite" % "3.2.8" % "test"
 )
 
 import scala.xml.{Node => XmlNode, NodeSeq => XmlNodeSeq, _}
