@@ -5,7 +5,7 @@ name := "testng-6.7"
 
 organization := "org.scalatestplus"
 
-version := "3.2.8.0"
+version := "3.2.9.0"
 
 homepage := Some(url("https://github.com/scalatest/scalatestplus-testng"))
 
@@ -28,13 +28,13 @@ developers := List(
 
 scalaVersion := "2.13.5"
 
-crossScalaVersions := List("2.10.7", "2.11.12", "2.12.13", "2.13.5", "3.0.0-RC3")
+crossScalaVersions := List("2.10.7", "2.11.12", "2.12.13", "2.13.5", "3.0.0")
 
 libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest-core" % "3.2.8",
+  "org.scalatest" %% "scalatest-core" % "3.2.9",
   "org.testng" % "testng" % "6.7", 
   "commons-io" % "commons-io" % "1.3.2" % "test", 
-  "org.scalatest" %% "scalatest-funsuite" % "3.2.8" % "test"
+  "org.scalatest" %% "scalatest-funsuite" % "3.2.9" % "test"
 )
 
 import scala.xml.{Node => XmlNode, NodeSeq => XmlNodeSeq, _}
@@ -106,7 +106,7 @@ pomExtra := (
 )
 
 // Temporary disable publishing of doc in dotty, can't get it to build.
-publishArtifact in (Compile, packageDoc) := !scalaBinaryVersion.value.startsWith("3.")
+publishArtifact in (Compile, packageDoc) := !scalaBinaryVersion.value.startsWith("3")
 
 def docTask(docDir: File, resDir: File, projectName: String): File = {
   val docLibDir = docDir / "lib"
