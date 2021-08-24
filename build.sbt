@@ -26,14 +26,14 @@ developers := List(
   )
 )
 
-scalaVersion := "2.13.5"
+scalaVersion := "2.13.6"
 
-crossScalaVersions := List("2.10.7", "2.11.12", "2.12.13", "2.13.5", "3.0.0")
+crossScalaVersions := List("2.10.7", "2.11.12", "2.12.14", "2.13.6", "3.0.1")
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest-core" % "3.2.9",
-  "org.testng" % "testng" % "6.7", 
-  "commons-io" % "commons-io" % "1.3.2" % "test", 
+  "org.testng" % "testng" % "6.7",
+  "commons-io" % "commons-io" % "1.3.2" % "test",
   "org.scalatest" %% "scalatest-funsuite" % "3.2.9" % "test"
 )
 
@@ -104,9 +104,6 @@ pomExtra := (
     </developerConnection>
   </scm>
 )
-
-// Temporary disable publishing of doc in dotty, can't get it to build.
-publishArtifact in (Compile, packageDoc) := !scalaBinaryVersion.value.startsWith("3")
 
 def docTask(docDir: File, resDir: File, projectName: String): File = {
   val docLibDir = docDir / "lib"
