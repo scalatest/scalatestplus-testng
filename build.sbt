@@ -5,7 +5,7 @@ name := "testng-6.7"
 
 organization := "org.scalatestplus"
 
-version := "3.2.9.0"
+version := "3.2.9.1"
 
 homepage := Some(url("https://github.com/scalatest/scalatestplus-testng"))
 
@@ -36,6 +36,8 @@ libraryDependencies ++= Seq(
   "commons-io" % "commons-io" % "1.3.2" % "test",
   "org.scalatest" %% "scalatest-funsuite" % "3.2.9" % "test"
 )
+
+publishArtifact in (Compile, packageDoc) := !scalaBinaryVersion.value.startsWith("3")
 
 import scala.xml.{Node => XmlNode, NodeSeq => XmlNodeSeq, _}
 import scala.xml.transform.{RewriteRule, RuleTransformer}
