@@ -37,7 +37,7 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest-funsuite" % "3.2.9" % "test"
 )
 
-publishArtifact in (Compile, packageDoc) := !scalaBinaryVersion.value.startsWith("3")
+Compile / packageDoc / publishArtifact := !scalaBinaryVersion.value.startsWith("3")
 
 import scala.xml.{Node => XmlNode, NodeSeq => XmlNodeSeq, _}
 import scala.xml.transform.{RewriteRule, RuleTransformer}
@@ -55,7 +55,7 @@ pomPostProcess := { (node: XmlNode) =>
   }).transform(node).head
 }
 
-testOptions in Test :=
+Test / testOptions :=
   Seq(
     Tests.Argument(TestFrameworks.ScalaTest,
     "-l", "org.scalatest.tags.Slow",
@@ -91,7 +91,7 @@ publishTo := {
 
 publishMavenStyle := true
 
-publishArtifact in Test := false
+Test / publishArtifact := false
 
 pomIncludeRepository := { _ => false }
 
@@ -134,10 +134,10 @@ def docTask(docDir: File, resDir: File, projectName: String): File = {
   docDir
 }
 
-doc in Compile := docTask((doc in Compile).value,
-                          (sourceDirectory in Compile).value,
+Compile / doc := docTask((Compile / doc).value,
+                          (Compile / sourceDirectory).value,
                           name.value)
 
-scalacOptions in (Compile, doc) := Seq("-doc-title", s"ScalaTest + TestNG ${version.value}", 
+Compile / doc / scalacOptions := Seq("-doc-title", s"ScalaTest + TestNG ${version.value}", 
                                        "-sourcepath", baseDirectory.value.getAbsolutePath(), 
                                        "-doc-source-url", s"https://github.com/scalatest/releases-source/blob/main/scalatestplus-testng/${version.value}€{FILE_PATH}.scala")
