@@ -1,11 +1,11 @@
 import java.io.PrintWriter
 import scala.io.Source
 
-name := "testng-6.7"
+name := "testng-7.5"
 
 organization := "org.scalatestplus"
 
-version := "3.2.10.0"
+version := "3.2.11.0"
 
 homepage := Some(url("https://github.com/scalatest/scalatestplus-testng"))
 
@@ -31,10 +31,10 @@ scalaVersion := "2.13.6"
 crossScalaVersions := List("2.10.7", "2.11.12", "2.12.15", "2.13.6", "3.0.2")
 
 libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest-core" % "3.2.10",
-  "org.testng" % "testng" % "6.7",
+  "org.scalatest" %% "scalatest-core" % "3.2.11",
+  "org.testng" % "testng" % "7.5",
   "commons-io" % "commons-io" % "1.3.2" % "test",
-  "org.scalatest" %% "scalatest-funsuite" % "3.2.10" % "test"
+  "org.scalatest" %% "scalatest-funsuite" % "3.2.11" % "test"
 )
 
 Compile / packageDoc / publishArtifact := !scalaBinaryVersion.value.startsWith("3")
