@@ -19,7 +19,6 @@ package org.scalatestplus.testng {
 import org.scalatest.events._
 import org.scalatestplus.testng.testpackage._
 import org.scalatest.fixture
-import org.hamcrest.core.IsAnything
 import org.scalatestplus.testng.SharedHelpers.EventRecordingReporter
 
   class TestNGSuiteSuite extends funsuite.AnyFunSuite {
@@ -83,9 +82,9 @@ import org.scalatestplus.testng.SharedHelpers.EventRecordingReporter
       status.setCompleted()
 
       assert(reporter.suiteStartingEventsReceived.isEmpty)
-      assert(reporter.testStartingEventsReceived.length == 1)
+      assert(reporter.testStartingEventsReceived.length == 2)
       assert(reporter.testFailedEventsReceived.length == 1)
-      assert(reporter.testIgnoredEventsReceived.length == 1)
+      assert(reporter.testCanceledEventsReceived.length == 1)
       assert(reporter.suiteCompletedEventsReceived.isEmpty)
     }
     

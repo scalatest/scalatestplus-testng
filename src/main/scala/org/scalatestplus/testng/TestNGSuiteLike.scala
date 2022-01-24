@@ -26,6 +26,7 @@ import TestNGHelper.getIndentedTextForTest
 import TestNGHelper.yeOldeTestNames
 import org.scalatest.tools.Utils.wrapReporterIfNecessary
 import events.MotionToSuppress
+import scala.collection.JavaConverters._
 
 /**
  * Implementation trait for class <code>TestNGSuite</code>, which represents
@@ -281,20 +282,9 @@ trait TestNGSuiteLike extends Suite { thisSuite =>
     // NOTE: There was another option - we could TestNG's XmlSuites to specify which method to run.
     // This approach was about as much work, offered no clear benefits, and no additional problems either.
     
-    // Using reflection because TestNG has a incompatible change, we want to allow people to use the old and the new version of TestNG.
-    try {
-      val transformerSuperClass = Class.forName("org.testng.IAnnotationTransformer")
-      val transformerSubClass = Class.forName("org.scalatestplus.testng.SingleTestAnnotationTransformer")
-      // Go with TestNG 6
-      val transformerInstance = transformerSubClass.getConstructor(classOf[String]).newInstance(testName).asInstanceOf[SingleTestAnnotationTransformer]
-      testng.setGroups("org.scalatestplus.testng.singlemethodrun.methodname")
-      val method = testng.getClass.getMethod("setAnnotationTransformer", transformerSuperClass)
-      method.invoke(testng, transformerInstance)
-    }
-    catch {
-      case e: ClassNotFoundException => 
-        new UnsupportedOperationException("Sorry, due to incompatible changes in TestNG, running a single test is only supported in TestNG version 6 or later.", e)
-    }
+    val transformer = new SingleTestAnnotationTransformer(testName)
+    testng.setGroups("org.scalatestplus.testng.singlemethodrun.methodname")
+    testng.addListener(transformer)
   }
   
   /*
@@ -341,13 +331,14 @@ trait TestNGSuiteLike extends Suite { thisSuite =>
     }
 
     /**
-     * TestNG's onTestSkipped maps cleanly to TestIgnored. Again, simply build
+     * TestNG's onTestSkipped maps cleanly to TestCanceled. Again, simply build
      * a report and pass it to the Reporter.
      */
     override def onTestSkipped(result: ITestResult): Unit = {
       val testName = result.getName + params(result)
       val formatter = getIndentedTextForTest(testName, 1, true)
-      report(TestIgnored(tracker.nextOrdinal(), thisSuite.suiteName, thisSuite.getClass.getName, Some(thisSuite.getClass.getName), testName, testName, Some(formatter), getTopOfMethod(thisSuite.getClass.getName, result.getName)))
+      val causedBy = result.getSkipCausedBy().asScala.map(_.getMethodName())
+      report(TestCanceled(tracker.nextOrdinal(), "Skipped caused by ", thisSuite.suiteName, thisSuite.getClass.getName, Some(thisSuite.getClass.getName), testName, testName, Vector.empty))
     }
 
     /**
