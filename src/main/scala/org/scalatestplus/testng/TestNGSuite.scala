@@ -25,7 +25,7 @@ package org.scalatestplus.testng
  * <pre class="stHighlight">
  * import org.scalatest.testng.TestNGSuite
  * import org.testng.annotations.Test
- * import org.testng.annotations.Configuration
+ * import org.testng.annotations.BeforeMethod
  * import scala.collection.mutable.ListBuffer
  * 
  * class MySuite extends TestNGSuite {
@@ -33,8 +33,7 @@ package org.scalatestplus.testng
  *   var sb: StringBuilder = _
  *   var lb: ListBuffer[String] = _
  * 
- *   @Configuration(beforeTestMethod = true)
- *   def setUpFixture() {
+ *   @BeforeMethod def setUpFixture() {
  *     sb = new StringBuilder("ScalaTest is ")
  *     lb = new ListBuffer[String]
  *   }
