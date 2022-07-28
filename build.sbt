@@ -5,7 +5,7 @@ name := "testng-7.5"
 
 organization := "org.scalatestplus"
 
-version := "3.2.12.0"
+version := "3.2.13.0"
 
 homepage := Some(url("https://github.com/scalatest/scalatestplus-testng"))
 
@@ -28,13 +28,13 @@ developers := List(
 
 scalaVersion := "2.13.8"
 
-crossScalaVersions := List("2.10.7", "2.11.12", "2.12.15", "2.13.8", "3.1.2")
+crossScalaVersions := List("2.10.7", "2.11.12", "2.12.16", "2.13.8", "3.1.3")
 
 libraryDependencies ++= Seq(
-  "org.scalatest" %% "scalatest-core" % "3.2.12",
+  "org.scalatest" %% "scalatest-core" % "3.2.13",
   "org.testng" % "testng" % "7.5",
   "commons-io" % "commons-io" % "1.3.2" % "test",
-  "org.scalatest" %% "scalatest-funsuite" % "3.2.12" % "test"
+  "org.scalatest" %% "scalatest-funsuite" % "3.2.13" % "test"
 )
 
 Compile / packageDoc / publishArtifact := !scalaBinaryVersion.value.startsWith("3")
