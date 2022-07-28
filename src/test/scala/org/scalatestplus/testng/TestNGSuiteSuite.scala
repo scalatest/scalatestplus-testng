@@ -85,6 +85,7 @@ import org.scalatestplus.testng.SharedHelpers.EventRecordingReporter
       assert(reporter.testStartingEventsReceived.length == 2)
       assert(reporter.testFailedEventsReceived.length == 1)
       assert(reporter.testCanceledEventsReceived.length == 1)
+      assert(reporter.testCanceledEventsReceived(0).formatter == Some(IndentedText("- depender", "depender", 1)))
       assert(reporter.suiteCompletedEventsReceived.isEmpty)
     }
     

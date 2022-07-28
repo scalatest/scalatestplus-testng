@@ -338,7 +338,7 @@ trait TestNGSuiteLike extends Suite { thisSuite =>
       val testName = result.getName + params(result)
       val formatter = getIndentedTextForTest(testName, 1, true)
       val causedBy = result.getSkipCausedBy().asScala.map(_.getMethodName())
-      report(TestCanceled(tracker.nextOrdinal(), "Skipped caused by ", thisSuite.suiteName, thisSuite.getClass.getName, Some(thisSuite.getClass.getName), testName, testName, Vector.empty))
+      report(TestCanceled(tracker.nextOrdinal(), "Skipped caused by " + causedBy, thisSuite.suiteName, thisSuite.getClass.getName, Some(thisSuite.getClass.getName), testName, testName, Vector.empty, None, None, Some(formatter)))
     }
 
     /**
