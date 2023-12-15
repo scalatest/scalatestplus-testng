@@ -464,9 +464,4 @@ trait TestNGSuiteLike extends Suite { thisSuite =>
   override protected final def runTest(testName: String, args: Args): Status = {
     throw new UnsupportedOperationException
   }
-
-  /**
-   * Suite style name.
-   */
-  final override val styleName: String = "TestNGSuite"
 }
