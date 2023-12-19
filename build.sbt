@@ -28,7 +28,7 @@ developers := List(
 
 scalaVersion := "2.13.12"
 
-crossScalaVersions := List("2.11.12", "2.12.17", "2.13.12", "3.3.1")
+crossScalaVersions := List("2.11.12", "2.12.18", "2.13.12", "3.3.1")
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest-core" % "3.3.0-alpha.1",
