@@ -3,12 +3,12 @@ ScalaTest + TestNG provides integration support between ScalaTest and TestNG.
 
 **Usage**
 
-To use it for ScalaTest 3.2.17 and TestNG 7.5.x: 
+To use it for ScalaTest 3.2.18 and TestNG 7.9.x: 
 
 SBT: 
 
 ```
-libraryDependencies += "org.scalatestplus" %% "testng-7-5" % "3.2.17.0" % "test"
+libraryDependencies += "org.scalatestplus" %% "testng-7-9" % "3.2.18.0" % "test"
 ```
 
 Maven: 
@@ -16,8 +16,8 @@ Maven:
 ```
 <dependency>
   <groupId>org.scalatestplus</groupId>
-  <artifactId>testng-7-5_2.13</artifactId>
-  <version>3.2.17.0</version>
+  <artifactId>testng-7-9_2.13</artifactId>
+  <version>3.2.18.0</version>
   <scope>test</scope>
 </dependency>
 ```
