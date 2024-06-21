@@ -1,7 +1,7 @@
 import java.io.PrintWriter
 import scala.io.Source
 
-name := "testng-7.9"
+name := "testng-7.10"
 
 organization := "org.scalatestplus"
 
@@ -32,7 +32,7 @@ crossScalaVersions := List("2.11.12", "2.12.18", "2.13.12", "3.3.1")
 
 libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest-core" % "3.2.18",
-  "org.testng" % "testng" % "7.9.0",
+  "org.testng" % "testng" % "7.10.2",
   "commons-io" % "commons-io" % "1.3.2" % "test",
   "org.scalatest" %% "scalatest-funsuite" % "3.2.18" % "test"
 )
